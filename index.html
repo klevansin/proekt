@@ -1,0 +1,36 @@
+<html>
+    <script src="./hesh.js"></script>
+    <script src="./mine.js"></script>
+    <script src="./Block.js"></script>
+    <script src="./Blocks.js"></script>
+    <script>
+
+     /*   for(let i = 0;i<10;i++){
+
+            let h = hesh(i,8);
+            console.log(i,h);`
+        };
+        */
+       // let m=[2,4,6,4,23,9,52,256,47,89,65];
+       //console.log(hesh2(m,8));
+       /* let N='abcdefg';
+        let y = bukvi(N);
+        let r = hesh2(y, 8);
+        console.log(N,y, r);
+        let t = 'bhfvsyehfvblbvbjrkrlbfvslvn55nfj11';
+        let m = '45565+959+5+95+9556566+9562+65662662525252';
+        console.log(mine(m));
+*/
+
+        let r = new Blocks();
+        r.add('ujbj.lbjbvkjbkjbjb');
+        r.add('hi, mark, i didnt hit her');
+        r.add('mgfmuc,ikijj,vhjjny xhxdrgrzeg  nilvh');
+        console.log(r.blocks);
+        
+        let b2 =  r.blocks[2];
+        b2.info = 'cfhcgfhf';
+        let y = b2.valid();
+        console.log(y);
+    </script>
+</html>

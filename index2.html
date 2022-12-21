@@ -1,0 +1,49 @@
+<html>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous">
+    </script>
+<script>
+    
+$(()=>{
+
+    let $name = $('#name');
+    let $age = $('#age');
+    let $add = $('#add');
+    let people = [];
+    let $vivod = $('#vivod');
+    
+    $vivod.css({height:200,width:'100%'});
+    $add.on('click',()=>{ 
+        let age = parseInt($age.val(),10);
+        if ( Number.isInteger(age) == true){
+            people.push({
+                name:$name.val(),
+                age:$age.val()
+            });
+            $age.css({background:'white'});
+            out();
+        }else{
+            $age.css({background:'red'});
+        };
+    });
+    
+    function out(){
+       $vivod.val('');
+       for(let i=0;i<people.length;i++){
+        let item =people[i];
+        let prev = $vivod.val();
+        $vivod.val( prev + '\n' + item.name+' '+item.age );
+       }
+    };
+});
+
+
+</script>
+<body>
+    <input id="name" type="edit" value="" placeholder="name"/>
+    <input id="age" type="edit" value="" placeholder="age"/>
+    <input id="add" type="button" value="add"/><br>
+    <textarea id="vivod" ></textarea>
+</body>    
+</html>
