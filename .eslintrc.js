@@ -1,4 +1,4 @@
-const path = require('path');
+// const path = require('path');
 
 module.exports = {
     env: {
@@ -17,12 +17,12 @@ module.exports = {
         sourceType: 'module',
     },
     plugins: [
-        'react',
+        // 'react',
     ],
     settings: {
         'import/resolver': {
             webpack: {
-                //config: path.resolve('webpack.config.js'),
+                // config: path.resolve('webpack.config.js'),
             },
         },
     },
