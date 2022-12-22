@@ -1,0 +1,28 @@
+{
+  "name": "proekt",
+  "version": "0.0.1",
+  "description": "изучение блокчейна",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klevansin/proekt.git"
+  },
+  "keywords": [
+    "blockchain"
+  ],
+  "author": "klevansin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/klevansin/proekt/issues"
+  },
+  "homepage": "https://github.com/klevansin/proekt#readme",
+  "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint": "^8.30.0"
+  }
+}
