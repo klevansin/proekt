@@ -39,7 +39,7 @@ function strToMassiv(str) {
     const out = [];
     const index = 0;
     for (let i = 0; i < str.length; i++) {
-        out.push(str[i].charCodeAt(index) + i);// немного искажаем код на каждом шаге, что-бы исключить повторяющиеся символы
+        out.push(str[i].charCodeAt(index) + i);// i - немного искажаем код на каждом шаге, что-бы исключить повторяющиеся символы
     }
     return out;
 }
