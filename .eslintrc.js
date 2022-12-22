@@ -36,8 +36,6 @@ module.exports = {
     rules: {
         'no-console': 'off',
         'no-bitwise': 'off',
-        'react/jsx-uses-react': 'error',
-        'react/jsx-uses-vars': 'error',
         'no-useless-constructor': 'off',
         'no-unused-vars': 'warn',
         'class-methods-use-this': 'off',
