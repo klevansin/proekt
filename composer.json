@@ -1,0 +1,7 @@
+{
+    "require": {
+        "fmihel/php-router": "v2.x-dev",
+        "fmihel/php-config": "^0.1.1",
+        "fmihel/php-base": "^1.1"
+    }
+}

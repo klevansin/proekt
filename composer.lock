@@ -1,0 +1,140 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "dc0439420212ae45946681584bc81545",
+    "packages": [
+        {
+            "name": "fmihel/php-base",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fmihel/php-base.git",
+                "reference": "b3ad22a3d0bfef90d0a6719a40489a4e79d6edb7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fmihel/php-base/zipball/b3ad22a3d0bfef90d0a6719a40489a4e79d6edb7",
+                "reference": "b3ad22a3d0bfef90d0a6719a40489a4e79d6edb7",
+                "shasum": ""
+            },
+            "require-dev": {
+                "fmihel/console-log": "^1.1",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "fmihel\\base\\": "source"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fmihel",
+                    "email": "fmihel76@gmail.com"
+                }
+            ],
+            "description": "php base wrapper",
+            "support": {
+                "issues": "https://github.com/fmihel/php-base/issues",
+                "source": "https://github.com/fmihel/php-base/tree/v1.1.1"
+            },
+            "time": "2021-11-12T10:45:46+00:00"
+        },
+        {
+            "name": "fmihel/php-config",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fmihel/php-config.git",
+                "reference": "a65f0a2ddfaf2e024182b3d88650cbc72a18a665"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fmihel/php-config/zipball/a65f0a2ddfaf2e024182b3d88650cbc72a18a665",
+                "reference": "a65f0a2ddfaf2e024182b3d88650cbc72a18a665",
+                "shasum": ""
+            },
+            "require-dev": {
+                "fmihel/console-log": "*",
+                "phpunit/phpunit": "8.5.23"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "fmihel\\config\\": "source"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fmihel",
+                    "email": "fmihel76@gmail.com"
+                }
+            ],
+            "description": "php config loader",
+            "support": {
+                "issues": "https://github.com/fmihel/php-config/issues",
+                "source": "https://github.com/fmihel/php-config/tree/v0.1.1"
+            },
+            "time": "2022-05-31T07:13:35+00:00"
+        },
+        {
+            "name": "fmihel/php-router",
+            "version": "v2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fmihel/php-router.git",
+                "reference": "4abd4ab0fef821486935d79dc1f737c0c8506843"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fmihel/php-router/zipball/4abd4ab0fef821486935d79dc1f737c0c8506843",
+                "reference": "4abd4ab0fef821486935d79dc1f737c0c8506843",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "fmihel\\": "source"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fmihel",
+                    "email": "fmihel76@gmail.com"
+                }
+            ],
+            "description": "php,router",
+            "support": {
+                "issues": "https://github.com/fmihel/php-router/issues",
+                "source": "https://github.com/fmihel/php-router/tree/v2"
+            },
+            "time": "2022-12-22T13:55:24+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "fmihel/php-router": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
+}

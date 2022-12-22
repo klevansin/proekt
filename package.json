@@ -4,7 +4,8 @@
   "description": "изучение блокчейна",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && mkdir dist && cp composer.json dist/ && cd dist && composer i --no-dev && cd .. && cp -rf server/* dist ",
+    "deploy":"node deploy.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-import": "^2.26.0"
+  },
+  "dependencies": {
+    "ftp-deploy": "^2.4.3"
   }
 }
