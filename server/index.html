@@ -11,11 +11,21 @@
                      console.log(data);
                  });
              })
-         });
+
+             $('#load').on('click',()=>{
+                 router.send({
+                     to:'api/load',
+                 }).then(data=>{
+                     console.log(data);
+                 });
+             })
+
+        });
  
      </script>
     <body style="background:black;color:lime;text-align:center;">
-        server connect ok...
+        server connect ok...<br>
         <button id="test">test</button>
+        <button id="load">load</button>
     </body>
 </html>
