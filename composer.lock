@@ -134,12 +134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fmihel/php-router.git",
-                "reference": "4abd4ab0fef821486935d79dc1f737c0c8506843"
+                "reference": "17da61481b91083391fdc5663d662e3cd7eec714"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fmihel/php-router/zipball/4abd4ab0fef821486935d79dc1f737c0c8506843",
-                "reference": "4abd4ab0fef821486935d79dc1f737c0c8506843",
+                "url": "https://api.github.com/repos/fmihel/php-router/zipball/17da61481b91083391fdc5663d662e3cd7eec714",
+                "reference": "17da61481b91083391fdc5663d662e3cd7eec714",
                 "shasum": ""
             },
             "type": "library",
@@ -163,7 +163,7 @@
                 "issues": "https://github.com/fmihel/php-router/issues",
                 "source": "https://github.com/fmihel/php-router/tree/v2"
             },
-            "time": "2022-12-22T13:55:24+00:00"
+            "time": "2022-12-28T12:40:50+00:00"
         }
     ],
     "packages-dev": [],

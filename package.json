@@ -4,11 +4,13 @@
   "description": "изучение блокчейна",
   "main": "index.js",
   "scripts": {
+    "build": "npm run clear && mkdir dist && npm run build-prod && npm run build-server",
     "build-prod": "rm -rf ./dist/* &&  webpack --env --prod",
     "build-dev": "rm -rf ./dist/* &&  webpack",
     "run-dev-server": "webpack-dev-server",
-    "build": "rm -rf dist && mkdir dist && cp composer.json dist/ && cd dist && composer i --no-dev && cd .. && cp -rf server/* dist ",
-    "deploy":"node deploy.js"
+    "build-server": "cp composer.json dist/ && cd dist && composer i --no-dev && cd .. && cp -rf server/* dist && cp config.php ./dist/",
+    "clear": "rm -rf ./dist",
+    "deploy": "node deploy.js"
   },
   "repository": {
     "type": "git",
@@ -51,10 +53,11 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "ftp-deploy": "^2.4.3",
     "fmihel-lazy-load": "^0.0.6",
+    "fmihel-php-router-client": "^2.1.1-beta.10",
     "fmihel-react-bootstrap-tree": "^2.3.4",
     "fmihel-redux-wrapper": "^3.0.1",
+    "ftp-deploy": "^2.4.3",
     "jquery": "^3.6.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
