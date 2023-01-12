@@ -20,7 +20,7 @@
 ---
 ### 2. Блок схема сохранеия информации 
 
-![блок-схема](https://drive.google.com/file/d/1rSufyGfnKEDQHCaP-HRK-byDrwS5WKwU/view?usp=share_link)
+![блок-схема](./media/bs-save-info.png)
 ---
 ### 3. Интерфейса ввода и управления данными
 
