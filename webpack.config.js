@@ -27,7 +27,7 @@ let hash = genHash(20);
 
 
 const copyList = [
-    { from: `./app/media/favicon.ico` },
+    { from: `./client/media/favicon.ico` },
 ];
 
 
@@ -58,8 +58,8 @@ if (extractCss){
 
 module.exports = {
     entry:{
-        main:'./app/index.js',
-        //style:'./app/style.scss'
+        main:'./client/index.js',
+        //style:'./client/style.scss'
     }, 
     output:{
         path:outputPath,
@@ -69,7 +69,7 @@ module.exports = {
     resolve: {
         alias: {
             //COMPONENTS: path.resolve(__dirname, app_client+'components/'),
-            REDUX:path.resolve(__dirname, 'app/redux/'),
+            REDUX:path.resolve(__dirname, 'client/redux/'),
         },
     },
     mode,
@@ -81,13 +81,13 @@ module.exports = {
             //jQuery: 'jquery',
         }),        
         new webpack.DefinePlugin({
-           CSS_ROOT_PATH: JSON.stringify('./style/app/'),
+           CSS_ROOT_PATH: JSON.stringify('./style/client/'),
            CSS_HASH: JSON.stringify(hash),
            CSS_LAZY_LOAD_ENABLE:extractCss,
            WEBPACK_MODE:JSON.stringify(mode),
         }),        
         new HtmlWebPackPlugin({
-            template: `./app/index.html`,
+            template: `./client/index.html`,
             filename: './index.html',
         }),
         new CopyWebpackPlugin({patterns:copyList}),
@@ -128,6 +128,10 @@ module.exports = {
         },
         port:3000,
         //liveReload: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
+
     },
         
 

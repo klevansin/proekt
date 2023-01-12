@@ -20,14 +20,13 @@ use fmihel\console;
 
 console::log('in');
 
-Base::connect(Config::get('deco'));
+//Base::connect(Config::get('base'));
 
 
 if (router::enabled()){
     try{
         router::init([
             'root'=>__DIR__,
-            'before'=>function($pack){ return $pack; },
         ]);
         require_once router::module();
         router::done();
