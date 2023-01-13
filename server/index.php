@@ -19,11 +19,7 @@ use fmihel\config\Config;
 use fmihel\console;
 
 
-//Base::connect(Config::get('base'));
-
-//$input  = json_decode(trim(file_get_contents("php://input")),true);
-//console::log($input);
-//echo json_encode(['responsed'=>73478]);
+Base::connect(Config::get('base'));
 
 
 if (router::enabled()){

@@ -6,4 +6,4 @@ use fmihel\router;
 //}else
 //    error_log(print_r(router::$data,true));
     
-router::out('test is ok');
+router::out(['test'=>'ok']);
