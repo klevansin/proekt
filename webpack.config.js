@@ -95,7 +95,10 @@ module.exports = {
     ],
     module: {
         rules: [
-            
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"],
+            },
             {
                 test: /\.s[ac]ss$/i,
                 exclude: /node_modules/,
