@@ -4,7 +4,7 @@
     --dark:#98ABB8;
 
     --color:#2779AA;
-    --color-dark:#1c3849;
+    --color-dark:#21516E;
     --color-light:#e8eef1;
 
     --border:#AED0EA;
@@ -14,10 +14,13 @@
     --size:32px;
     --gap:5px;
     --radius:6px;
+    --font-family: Tahoma, sans-serif;
+
 }
 
 *{
     box-sizing: border-box;
+    font-family: var(--font-family) !important;
 }
 
 input,button {
@@ -27,45 +30,82 @@ input,button {
     line-height:var(--size) !important;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
+
 }
 
 input[type='text']{
-    font-size: 1rem !important;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding-left:var(--gap);
+
+    font-size: 0.8rem !important;
+
 }
 
+.layout {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+@media screen and (min-width: 900px) {
+    .layout {     
+        padding-left: 20%;
+        padding-right: 20%;
+     }
+}
 
 body{
+    font-size: 12px;
+
     background-color: var(--bg);
     user-select: none;
-
     margin:var(--gap);
     padding:var(--gap);
+    
     overflow:hidden;
 }
 
-.panel{
+
+
+.panel,.vert{
     display: flex;
     background-color: var(--light);
     border-radius: var(--radius);
     border: 1px solid var(--border);
     padding: var(--gap);
 }
-/*---------------------------------------------------*/
-table{
-    border: 1px solid var(--dark);
-    box-sizing: border-box;
-    border-collapse: collapse;
+.vert{
+    flex-direction: column;
+    align-items:flex-start;
 }
-thead{
-    background-color: var(--dark);
+label{
     height: var(--size);
+    line-height: var(--size);
+    margin-right:var(--gap) ;
+}
+
+.group,fieldset{
+    background-color: var(--light);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    
+    /*padding: var(--gap);*/
+
+}
+/*---------------------------------------------------*/
+.dataTables_wrapper{
+    border: 1px solid var(--dark);
+}
+table{
+    
+    box-sizing: border-box;
+    border-collapse: collapse !important;
+}
+.dataTables_scrollHead{
+    background-color: var(--dark);
     color:var(--color-dark)
 }
 table tbody tr{
-    border-bottom: 1px solid var(--dark);
+    border-bottom: 1px solid var(--dark) !important;
 }
 table tbody td{
     padding-left:var(--gap);

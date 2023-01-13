@@ -53,6 +53,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "datatables": "^1.10.18",
     "fmihel-lazy-load": "^0.0.6",
     "fmihel-php-router-client": "^2.1.1-beta.10",
     "fmihel-react-bootstrap-tree": "^2.3.4",
