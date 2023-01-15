@@ -9,41 +9,50 @@
   </head>
   <body >
     <div class="layout">
-    <div class="panel">
-      <label>Введите имя </label>
-      <input type='text'  id="client-template" />
-
-      <button id="btn-search-client" >поиск</button>
-
-    </div>
-    <div class="panel vert" >
-      <label>Список найденных клиентов</label>
-      <div id="search-list"></div>
-    </div>
-    <div class="panel">
-      <label>Текущий клиент</label>
-      <input type="text" id="client-name" />
+      <div id="tabs-1">
+        <ul>
+          <li><a href="#tabs-1">test</a></li>
+          <li><a href="#tabs-2">Пример</a></li>
+        </ul>
+        <div id="tabs-1">
+          <div class="panel">
+            <button id="btn-test" >test</button>
+            <button id="btn-load" >load</button>
+            <input type='text' value="text"/>
+            <button id="btn-set-data" >add data</button>
+          </div>
+        </div>
+        <div id="tabs-2">
+          <div class="panel">
+            <label>Введите имя </label>
+            <input type='text'  id="client-template" />
+            <button id="btn-search-client" >поиск</button>
+          </div>
+          <div class="panel vert" >
+            <label>Список найденных клиентов</label>
+            <div id="search-list"></div>
+          </div>
+          <div class="panel">
+            <label>Текущий клиент</label>
+            <input type="text" id="client-name" />
+            
+          </div>
       
-    </div>
+          <div class="panel vert">
+            <label>Результаты обращений</label>
+            <div id="results"></div>
+          </div>
+      
+          <div class="panel vert">
+            <label>Обследование</label>
+            <textarea></textarea>
+            <button id="btn-add-result" >добавить</button>
+          </div>
+      
+        </div>
+      </div>
 
-    <div class="panel vert">
-      <label>Результаты обращений</label>
-      <div id="results"></div>
-    </div>
-
-    <div class="panel vert">
-      <label>Обследование</label>
-      <textarea></textarea>
-      <button id="btn-add-result" >добавить</button>
-    </div>
-
-    <div class="panel">
-      <button id="btn-test" >test</button>
-      <button id="btn-load" >load</button>
-      <input type='text' value="text"/>
-      <button id="btn-set-data" >add data</button>
-    </div>
-
+   
     
 
       <div id="dlg-test" title="Basic dialog">

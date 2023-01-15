@@ -11,24 +11,15 @@ import 'jquery-ui/dist/jquery-ui.min';
 import 'datatables/media/js/jquery.dataTables.min';
 import './style/index.css';
 import { createTable } from './utils/table';
-import { $$, ui } from './utils/ui';
+import { $$, createUI } from './utils/ui';
 import { clients, results } from './data';
 
 $(() => {
-    ui(
-        'dlg-test',
-        'btn-1',
-        'btn-test',
-        'btn-load',
-        'btn-set-data',
-        'group-1',
-        'btn-search-client',
-        'client-name',
-        'results',
-        'btn-add-result',
-    );
+    createUI();
+
     $$['btn-search-client'].on('click', () => {
         createTable({
+            id: 'clients',
             ...clients,
             $parent: $('#search-list'),
         }).on('click', () => {

@@ -10,7 +10,7 @@ export function createTable({
     $parent.append(`<table id='${id}'><thead></thead><tbody></tbody></table>`);
     const $table = $parent.find(`#${id}`);
 
-    $table.DataTable({
+    $$[id] = $table.DataTable({
         paging: false,
         ordering: false,
         info: false,
@@ -21,6 +21,5 @@ export function createTable({
         columns,
     });
 
-    $$[id] = $table;
-    return $table;
+    return $$[id];
 }

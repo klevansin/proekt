@@ -14,6 +14,16 @@ export function ui(...ids) {
         if (id.indexOf('group-') === 0) {
             widg.controlgroup();
         }
+        if (id.indexOf('tabs-') === 0) {
+            widg.tabs();
+        }
         return undefined;
     });
+}
+
+export function createUI() {
+    const list = $('*');
+    const ids = [];
+    list.each((i, dom) => (dom.id ? ids.push(dom.id) : ''));
+    ui(...ids);
 }
