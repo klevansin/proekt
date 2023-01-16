@@ -13,21 +13,18 @@ export default class server {
     }
 
     /** загрузка списка блоков */
-    static async load({
-        start = 0,
-        count = 10,
-    }) {
-        return router.send({ to: 'api/load', data: { start, count } });
+    static async load() {
+        return router.send({ to: 'api/load' });
     }
 
     static async init() {
         return router.send({ to: 'api/init' });
     }
 
-    static async prepare(info) {
+    static async prepare(info, ...addition) {
         return router.send({
             to: 'api/prepare',
-            data: { info },
+            data: { info, ...addition },
         });
     }
 
@@ -38,10 +35,10 @@ export default class server {
         });
     }
 
-    static async commit(ID, h) {
+    static async commit(ID, h, k) {
         return router.send({
             to: 'api/commit',
-            data: { ID, h },
+            data: { ID, h, k },
         });
     }
 

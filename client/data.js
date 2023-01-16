@@ -70,6 +70,10 @@ export const test = {
 
 let init = {
     ID: false,
+    PREV_HASH: '',
+    h: '',
+    k: '',
+
 };
 
 const changeCallbacks = [];

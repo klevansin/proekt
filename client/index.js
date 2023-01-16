@@ -16,20 +16,36 @@ import {
     clients, results, test, data, onChange,
 } from './data';
 
+let ui;
+
 onChange((d) => {
     console.log('change', d);
+    server.load().then((rows) => {
+        clearTable(ui['all-list']);
+        addToTable(ui['all-list'], rows);
+    });
 });
 
 $(() => {
-    const ui = createUI();
+    ui = createUI();
+
+    ui['all-list'] = createTable({
+        id: 'all-list',
+        $parent: $('#for-all-list'),
+        data: [],
+        columns: [
+            { data: 'ID', title: 'ID' },
+            { data: 'INFO', title: 'INFO' },
+            { data: 'STATE', title: 'STATE' },
+            { data: 'HASH', title: 'h' },
+            { data: 'DATE_MODIF', title: 'date' },
+        ],
+    });
 
     ui['btn-init'].on('click', () => {
         server.init().then(() => {
             data({ ID: false });
-            dialog('table init ok');
-        }).catch((e) => {
-            dialog(e);
-        });
+        }).catch((e) => console.error(e));
     });
 
     ui['btn-create-table'].on('click', () => {
@@ -42,8 +58,8 @@ $(() => {
 
         $table.on('select', (e, dt, type, indexes) => {
             if (type === 'row') {
-                const data = $table.row(indexes[0]).data();
-                console.log('select', data);
+                const row = $table.row(indexes[0]).data();
+                console.log('select', row);
             }
         });
     });
@@ -58,17 +74,27 @@ $(() => {
         server.prepare(info)
             .then((res) => {
                 data(res);
-            });
+            })
+            .catch((e) => console.error(e));
     });
 
     ui['btn-get-prev-hash'].on('click', () => {
         server.getPrevHash(data().ID)
             .then((res) => {
-                console.log(res);
+                data({ PREV_HASH: res.HASH });
             })
-            .catch((e) => {
-                dialog(e);
-            });
+            .catch((e) => console.error(e));
+    });
+
+    ui['btn-commit'].on('click', () => {
+        const { ID, h, k } = data();
+        server.commit(ID, h, k)
+            .then((res) => {
+                if (res == 1) {
+                    data({ ID: false });
+                }
+            })
+            .catch((e) => console.error(e));
     });
 
     ui['btn-add-row'].on('click', () => {
