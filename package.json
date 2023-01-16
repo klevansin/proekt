@@ -4,13 +4,13 @@
   "description": "изучение блокчейна",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clear && mkdir dist && npm run build-prod && npm run build-server",
-    "build-prod": "rm -rf ./dist/* &&  webpack --env --prod",
-    "build-dev": "rm -rf ./dist/* &&  webpack",
     "run-dev-server": "webpack-dev-server",
-    "build-server": "cp composer.json dist/ && cd dist && composer i --no-dev && cd .. && cp -rf server/* dist && cp config.php ./dist/",
-    "clear": "rm -rf ./dist",
-    "deploy": "node deploy.js"
+    "client-build": "npm run clear && mkdir dist && webpack --env --prod",
+    "client-build-dev": "npm run clear && webpack",
+    "client-deploy": "node deploy.js to=client",
+    "server-build": "npm run clear && mkdir dist && cp composer.json dist/ && cd dist && composer i --no-dev && cd .. && cp -rf server/* dist && cp config.php ./dist/",
+    "server-deploy": "node deploy.js to=server",
+    "clear": "rm -rf ./dist"
   },
   "repository": {
     "type": "git",

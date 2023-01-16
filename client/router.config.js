@@ -2,7 +2,7 @@ import router from 'fmihel-php-router-client';
 
 router.global = {
     ...router.global,
-    host: WEBPACK_MODE === 'production' ? './' : 'http://work/klevansin/proekt/server/index.php',
+    host: WEBPACK_MODE === 'production' ? '../server/' : 'http://work/klevansin/proekt/server/index.php',
 
     method: 'POST',
     mode: 'cors', // no-cors, cors, same-origin
