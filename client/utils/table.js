@@ -1,4 +1,6 @@
 import { $$ } from './ui';
+import 'datatables/media/js/jquery.dataTables.min';
+import 'datatables-select';
 
 export function createTable({
     id,

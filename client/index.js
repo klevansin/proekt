@@ -8,8 +8,6 @@ import 'jquery-ui/dist/themes/cupertino/jquery-ui.css';
 // import 'jquery-ui/dist/themes/swanky-purse/jquery-ui.css';
 // import 'jquery-ui/dist/themes/vader/jquery-ui.css';
 import 'jquery-ui/dist/jquery-ui.min';
-import 'datatables/media/js/jquery.dataTables.min';
-import 'datatables-select';
 import './style/index.css';
 import { createTable, clearTable, addToTable } from './utils/table';
 import { createUI } from './utils/ui';
