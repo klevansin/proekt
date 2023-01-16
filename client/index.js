@@ -11,10 +11,19 @@ import 'jquery-ui/dist/jquery-ui.min';
 import './style/index.css';
 import { createTable, clearTable, addToTable } from './utils/table';
 import { createUI } from './utils/ui';
+import dialog from './utils/dialog';
 import { clients, results, test } from './data';
 
 $(() => {
     const ui = createUI();
+
+    ui['btn-init'].on('click', () => {
+        server.init().then(() => {
+            dialog('table init ok');
+        }).catch((e) => {
+            dialog(e);
+        });
+    });
 
     ui['btn-create-table'].on('click', () => {
         const $table = createTable({
@@ -35,6 +44,14 @@ $(() => {
     ui['btn-clear-table'].on('click', () => {
         console.log('clear-table', ui['table-test-1']);
         clearTable(ui['table-test-1']);
+    });
+
+    ui['btn-prepare'].on('click', () => {
+        const info = ui['test-info'].val();
+        server.prepare(info)
+            .then((res) => {
+                console.log(res);
+            });
     });
 
     ui['btn-add-row'].on('click', () => {

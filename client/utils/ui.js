@@ -1,6 +1,6 @@
 export const $$ = {};
 
-export function ui(...ids) {
+export function addUI(...ids) {
     ids.map((id) => {
         const widg = $(`#${id}`);
         $$[id] = widg;
@@ -19,13 +19,14 @@ export function ui(...ids) {
         }
         return undefined;
     });
+    return $$;
 }
 
 export function createUI() {
     const list = $('*');
     const ids = [];
     list.each((i, dom) => (dom.id ? ids.push(dom.id) : ''));
-    ui(...ids);
+    addUI(...ids);
 
     return $$;
 }

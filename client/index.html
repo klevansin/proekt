@@ -11,20 +11,26 @@
     <div class="layout">
       <div id="tabs-1">
         <ul>
-          <li><a href="#tab-1">test</a></li>
+          <li><a href="#tab-0">server</a></li>
+          <li><a href="#tab-1">tab</a></li>
           <li><a href="#tab-2">Пример</a></li>
         </ul>
-        <div id="tab-1">
+        <div id="tab-0">
           <div class="panel">
+            <button id="btn-init" >init</button>
             <button id="btn-test" >test</button>
             <button id="btn-load" >load</button>
-            <input type='text' value="text"/>
           </div>
+          <div class="panel">
+            <input id="test-info" type='text' value="text"/>
+            <button id="btn-prepare" >prepare</button>
+          </div>
+        </div>
+        <div id="tab-1">
           <div class="panel">
             <button id="btn-create-table" >create</button>
             <button id="btn-clear-table" >clear</button>
             <button id="btn-add-row" >add</button>
-
           <div class="panel" id="for-table-test"></div>
           </div>
         </div>
@@ -58,10 +64,8 @@
         </div>
       </div>
 
-      <div id="dlg-test" title="Basic dialog">
-        <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
-        <button id="btn-1">test</button>
-        <input type="text" value="text"/>
+      <div id="dlg-1" title="dialog">
+        <p id="message"></p>
       </div>
 
     </div>

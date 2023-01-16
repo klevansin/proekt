@@ -19,4 +19,43 @@ export default class server {
     }) {
         return router.send({ to: 'api/load', data: { start, count } });
     }
+
+    static async init() {
+        return router.send({ to: 'api/init' });
+    }
+
+    static async prepare(info) {
+        return router.send({
+            to: 'api/prepare',
+            data: { info },
+        });
+    }
+
+    static async getPrevHash(ID) {
+        return router.send({
+            to: 'api/getPrevHash',
+            data: { ID },
+        });
+    }
+
+    static async commit(ID, h) {
+        return router.send({
+            to: 'api/commit',
+            data: { ID, h },
+        });
+    }
+
+    static async findClients(clientName) {
+        return router.send({
+            to: 'api/findClients',
+            data: { clientName },
+        });
+    }
+
+    static async getListResult(ID_CLIENT) {
+        return router.send({
+            to: 'api/getListResult',
+            data: { ID_CLIENT },
+        });
+    }
 }
