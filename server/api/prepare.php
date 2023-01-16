@@ -1,7 +1,6 @@
 <?php
 
 use fmihel\base\Base;
-use fmihel\console;
 use fmihel\router;
 
 Base::startTransaction('bc');
@@ -15,7 +14,6 @@ try {
         ['ID'=>$ID,'INFO'=>router::$data['info'],'STATE'=>'prepare']
     );
     $res = Base::execute($prep,'bc');
-    console::log('prepare',$res);
     
     Base::commit('bc');
 

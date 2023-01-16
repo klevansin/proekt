@@ -67,3 +67,20 @@ export const test = {
 
     ],
 };
+
+let init = {
+    ID: false,
+};
+
+const changeCallbacks = [];
+export const data = (newData = undefined) => {
+    if (newData) {
+        init = { ...init, ...newData };
+        changeCallbacks.map((cb) => cb(init));
+    }
+    return init;
+};
+
+export const onChange = (callback) => {
+    changeCallbacks.push(callback);
+};

@@ -12,13 +12,20 @@ import './style/index.css';
 import { createTable, clearTable, addToTable } from './utils/table';
 import { createUI } from './utils/ui';
 import dialog from './utils/dialog';
-import { clients, results, test } from './data';
+import {
+    clients, results, test, data, onChange,
+} from './data';
+
+onChange((d) => {
+    console.log('change', d);
+});
 
 $(() => {
     const ui = createUI();
 
     ui['btn-init'].on('click', () => {
         server.init().then(() => {
+            data({ ID: false });
             dialog('table init ok');
         }).catch((e) => {
             dialog(e);
@@ -50,7 +57,17 @@ $(() => {
         const info = ui['test-info'].val();
         server.prepare(info)
             .then((res) => {
+                data(res);
+            });
+    });
+
+    ui['btn-get-prev-hash'].on('click', () => {
+        server.getPrevHash(data().ID)
+            .then((res) => {
                 console.log(res);
+            })
+            .catch((e) => {
+                dialog(e);
             });
     });
 
