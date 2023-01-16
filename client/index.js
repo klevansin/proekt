@@ -10,13 +10,11 @@ import 'jquery-ui/dist/themes/cupertino/jquery-ui.css';
 import 'jquery-ui/dist/jquery-ui.min';
 import './style/index.css';
 import { createTable, clearTable, addToTable } from './utils/table';
-import { createUI } from './utils/ui';
+import { createUI, ui } from './utils/ui';
 import dialog from './utils/dialog';
 import {
     clients, results, test, data, onChange,
 } from './data';
-
-let ui;
 
 onChange((d) => {
     console.log('change', d);
@@ -27,7 +25,7 @@ onChange((d) => {
 });
 
 $(() => {
-    ui = createUI();
+    createUI();
 
     ui['all-list'] = createTable({
         id: 'all-list',
@@ -38,6 +36,7 @@ $(() => {
             { data: 'INFO', title: 'INFO' },
             { data: 'STATE', title: 'STATE' },
             { data: 'HASH', title: 'h' },
+            { data: 'K', title: 'k' },
             { data: 'DATE_MODIF', title: 'date' },
         ],
     });
@@ -124,6 +123,7 @@ $(() => {
             console.error(e);
         });
     });
+
     ui['btn-load'].on('click', () => {
         server.load({}).then((list) => {
             console.log('load', list);

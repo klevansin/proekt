@@ -1,4 +1,4 @@
-import { $$ } from './ui';
+import { ui } from './ui';
 import 'datatables/media/js/jquery.dataTables.min';
 import 'datatables-select';
 
@@ -9,10 +9,10 @@ export function createTable({
     $parent,
     ...params
 }) {
-    $parent.append(`<table id='${id}'><thead></thead><tbody></tbody></table>`);
+    $parent.append(`<table id='${id}' style="width:100%"><thead></thead><tbody></tbody></table>`);
     const $table = $parent.find(`#${id}`);
 
-    $$[id] = $table.DataTable({
+    ui[id] = $table.DataTable({
         paging: false,
         ordering: false,
         info: false,
@@ -25,7 +25,7 @@ export function createTable({
 
     });
 
-    return $$[id];
+    return ui[id];
 }
 
 export function clearTable($table) {

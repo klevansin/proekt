@@ -1,9 +1,9 @@
-export const $$ = {};
+export const ui = {};
 
 export function addUI(...ids) {
     ids.map((id) => {
         const widg = $(`#${id}`);
-        $$[id] = widg;
+        ui[id] = widg;
         if (id.indexOf('dlg-') === 0) {
             widg.dialog();
             widg.dialog('close');
@@ -19,7 +19,7 @@ export function addUI(...ids) {
         }
         return undefined;
     });
-    return $$;
+    return ui;
 }
 
 export function createUI() {
@@ -28,5 +28,5 @@ export function createUI() {
     list.each((i, dom) => (dom.id ? ids.push(dom.id) : ''));
     addUI(...ids);
 
-    return $$;
+    return ui;
 }
