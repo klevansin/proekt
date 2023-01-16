@@ -21,3 +21,49 @@ export const results = {
         { data: 'result', title: 'result' },
     ],
 };
+
+export const test = {
+    data: [
+        {
+            name: 'Tiger Nixon',
+            position: 'System Architect',
+            salary: '$3,120',
+            start_date: '2011/04/25',
+            office: 'Edinburgh',
+            extn: '5421',
+        },
+        {
+            name: 'Garrett Winters',
+            position: 'Director',
+            salary: '$5,300',
+            start_date: '2011/07/25',
+            office: 'Edinburgh',
+            extn: '8422',
+        },
+    ],
+    columns: [
+        { data: 'name', title: 'Name' },
+        { data: 'position', title: 'pos' },
+        { data: 'salary', title: 'al' },
+        { data: 'office', title: 'off' },
+    ],
+    rows: [
+        {
+            name: 'Mike',
+            position: 'main',
+            salary: '$9290303',
+            start_date: '2011/04/25',
+            office: 'Moscow',
+            extn: '9403',
+        },
+        {
+            name: 'Soma',
+            position: 'Director',
+            salary: '$5300',
+            start_date: '2011/07/25',
+            office: 'leningrad',
+            extn: '93904',
+        },
+
+    ],
+};

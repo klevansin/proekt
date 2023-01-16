@@ -19,7 +19,17 @@ export function createTable({
         ...params,
         data,
         columns,
+        select: true,
+
     });
 
     return $$[id];
+}
+
+export function clearTable($table) {
+    $table.clear().draw();
+}
+
+export function addToTable($table, rows) {
+    $table.rows.add(rows).draw();
 }

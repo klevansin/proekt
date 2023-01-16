@@ -35,5 +35,5 @@ if (router::enabled()){
     }
 
 }else{
-    echo file_get_contents(__DIR__.'/index.html');
+    echo 'start from ../client/';
 }

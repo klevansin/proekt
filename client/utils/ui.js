@@ -26,4 +26,6 @@ export function createUI() {
     const ids = [];
     list.each((i, dom) => (dom.id ? ids.push(dom.id) : ''));
     ui(...ids);
+
+    return $$;
 }

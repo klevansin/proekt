@@ -9,29 +9,56 @@ import 'jquery-ui/dist/themes/cupertino/jquery-ui.css';
 // import 'jquery-ui/dist/themes/vader/jquery-ui.css';
 import 'jquery-ui/dist/jquery-ui.min';
 import 'datatables/media/js/jquery.dataTables.min';
+import 'datatables-select';
 import './style/index.css';
-import { createTable } from './utils/table';
-import { $$, createUI } from './utils/ui';
-import { clients, results } from './data';
+import { createTable, clearTable, addToTable } from './utils/table';
+import { createUI } from './utils/ui';
+import { clients, results, test } from './data';
 
 $(() => {
-    createUI();
+    const ui = createUI();
 
-    $$['btn-search-client'].on('click', () => {
+    ui['btn-create-table'].on('click', () => {
+        const $table = createTable({
+            id: 'table-test-1',
+            $parent: $('#for-table-test'),
+            data: test.data,
+            columns: test.columns,
+        });
+
+        $table.on('select', (e, dt, type, indexes) => {
+            if (type === 'row') {
+                const data = $table.row(indexes[0]).data();
+                console.log('select', data);
+            }
+        });
+    });
+
+    ui['btn-clear-table'].on('click', () => {
+        console.log('clear-table', ui['table-test-1']);
+        clearTable(ui['table-test-1']);
+    });
+
+    ui['btn-add-row'].on('click', () => {
+        console.log('add-table');
+        addToTable(ui['table-test-1'], test.rows);
+    });
+
+    ui['btn-search-client'].on('click', () => {
         createTable({
             id: 'clients',
             ...clients,
             $parent: $('#search-list'),
         }).on('click', () => {
-            $$['client-name'].val('Mike');
+            ui['client-name'].val('Mike');
             createTable({
                 ...results,
-                $parent: $$.results,
+                $parent: ui.results,
             });
         });
     });
 
-    $$['btn-test'].on('click', () => {
+    ui['btn-test'].on('click', () => {
         server.test().then(() => {
             console.log('тест пройден');
         }).catch((e) => {
@@ -39,45 +66,11 @@ $(() => {
             console.error(e);
         });
     });
-    $$['btn-load'].on('click', () => {
+    ui['btn-load'].on('click', () => {
         server.load({}).then((list) => {
             console.log('load', list);
         }).catch((e) => {
             console.error(e);
-        });
-    });
-
-    $$['btn-set-data'].on('click', () => {
-        const data = [
-            {
-                name: 'Tiger Nixon',
-                position: 'System Architect',
-                salary: '$3,120',
-                start_date: '2011/04/25',
-                office: 'Edinburgh',
-                extn: '5421',
-            },
-            {
-                name: 'Garrett Winters',
-                position: 'Director',
-                salary: '$5,300',
-                start_date: '2011/07/25',
-                office: 'Edinburgh',
-                extn: '8422',
-            },
-        ];
-        const columns = [
-            { data: 'name', title: 'Name' },
-            { data: 'position', title: 'pos' },
-            { data: 'salary', title: 'al' },
-            { data: 'office', title: 'off' },
-        ];
-
-        createTable({
-            id: 'table-1',
-            $parent: $('#for-table'),
-            data,
-            columns,
         });
     });
 });
