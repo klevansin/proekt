@@ -21,9 +21,16 @@ export default () => {
         $parent: $('#for-clients-list'),
         ...data().clients,
     });
+    updateClientsList();
 
     ui['btn-update-clients-list'].on('click', () => {
         updateClientsList();
+    });
+
+    ui['btn-clear-clients-list'].on('click', () => {
+        server.clearClients().then(() => {
+            data({ clients: { columns: data().clients.columns, data: [] } });
+        });
     });
 
     ui['btn-add-new-client'].on('click', () => {
@@ -35,8 +42,9 @@ export default () => {
             ui.name1.val('');
             ui.name2.val('');
             ui['date-birth'].val('');
-
-            dialog(`create client ${ID_CLIENT}`);
+            updateClientsList();
+        }).catch((e) => {
+            dialog(e);
         });
     });
 };

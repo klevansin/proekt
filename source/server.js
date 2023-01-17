@@ -69,4 +69,10 @@ export default class server {
             data: { name1, name2, date_birth },
         });
     }
+
+    static async clearClients() {
+        return router.send({
+            to: 'api/clearClients',
+        });
+    }
 }
