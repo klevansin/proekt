@@ -3,3 +3,4 @@ dist
 vendor
 config.php
 ftp.config.js
+.vscode
