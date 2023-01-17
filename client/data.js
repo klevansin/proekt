@@ -1,8 +1,5 @@
 export const clients = {
     data: [
-        { name: 'Mike', age: '18' },
-        { name: 'Soma', age: '23' },
-        { name: 'Drom', age: '7' },
     ],
     columns: [
         { data: 'name', title: 'name' },
@@ -73,6 +70,17 @@ let init = {
     PREV_HASH: '',
     h: '',
     k: '',
+
+    clients: {
+        data: [],
+        columns: [
+            { data: 'ID_CLIENT', title: 'id' },
+            { data: 'NAME1', title: 'имя' },
+            { data: 'NAME2', title: 'фамилия' },
+            { data: 'DATE_BIRTH', title: 'дата рождения' },
+            { data: 'DATE_CREATE', title: 'дата создания' },
+        ],
+    },
 
 };
 

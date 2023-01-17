@@ -33,7 +33,7 @@ input,button {
 
 }
 
-input[type='text']{
+input[type='text'],input[type='date']{
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding-left:var(--gap);

@@ -13,7 +13,8 @@
         <ul>
           <li><a href="#tab-0">server</a></li>
           <li><a href="#tab-1">tab</a></li>
-          <li><a href="#tab-2">Пример</a></li>
+          <li><a href="#tab-2">Клиенты</a></li>
+          <li><a href="#tab-3">Журнал</a></li>
         </ul>
         <div id="tab-0">
           <div class="panel">
@@ -40,6 +41,23 @@
           <div class="panel block" id="for-table-test"></div>
         </div>
         <div id="tab-2">
+          <div class="panel">
+            <label>Список клиентов </label>
+            <button id="btn-update-clients-list">обновить</button>
+            <button id="btn-clear-clients-list">очистить</button>
+          </div>
+          <div class="panel block" id="for-clients-list">
+          </div>
+          <div class="panel">Добавить клиента</div>
+          <div class="panel vert">
+            <input id="name1" type="text" placeholder="имя"/>
+            <input id="name2" type="text"  placeholder="фамилия"/>
+            <input id="date-birth" type="date"  placeholder="дата рождения"/>
+            <button id="btn-add-new-client">добавить</button>
+          </div> 
+      
+        </div>
+        <div id="tab-3">
           <div class="panel">
             <label>Введите имя </label>
             <input type='text'  id="client-template" />

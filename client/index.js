@@ -1,134 +1,18 @@
 import './router.config';
-import server from '../source/server';
 import 'datatables/media/css/jquery.dataTables.min.css';
-// import 'jquery-ui/dist/themes/base/jquery-ui.css';
 import 'jquery-ui/dist/themes/cupertino/jquery-ui.css';
-// import 'jquery-ui/dist/themes/overcast/jquery-ui.css';
-// import 'jquery-ui/dist/themes/redmond/jquery-ui.min.css';
-// import 'jquery-ui/dist/themes/swanky-purse/jquery-ui.css';
-// import 'jquery-ui/dist/themes/vader/jquery-ui.css';
 import 'jquery-ui/dist/jquery-ui.min';
 import './style/index.css';
-import { createTable, clearTable, addToTable } from './utils/table';
-import { createUI, ui } from './utils/ui';
-import dialog from './utils/dialog';
-import {
-    clients, results, test, data, onChange,
-} from './data';
-
-onChange((d) => {
-    console.log('change', d);
-    server.load().then((rows) => {
-        clearTable(ui['all-list']);
-        addToTable(ui['all-list'], rows);
-    });
-});
+import { createUI } from './utils/ui';
+import tabServer from './tabs/server';
+import tabTab from './tabs/tab';
+import tabClients from './tabs/clients';
+import tabJurnal from './tabs/jurnal';
 
 $(() => {
     createUI();
-
-    ui['all-list'] = createTable({
-        id: 'all-list',
-        $parent: $('#for-all-list'),
-        data: [],
-        columns: [
-            { data: 'ID', title: 'ID' },
-            { data: 'INFO', title: 'INFO' },
-            { data: 'STATE', title: 'STATE' },
-            { data: 'HASH', title: 'h' },
-            { data: 'K', title: 'k' },
-            { data: 'DATE_MODIF', title: 'date' },
-        ],
-    });
-
-    ui['btn-init'].on('click', () => {
-        server.init().then(() => {
-            data({ ID: false });
-        }).catch((e) => console.error(e));
-    });
-
-    ui['btn-create-table'].on('click', () => {
-        const $table = createTable({
-            id: 'table-test-1',
-            $parent: $('#for-table-test'),
-            data: test.data,
-            columns: test.columns,
-        });
-
-        $table.on('select', (e, dt, type, indexes) => {
-            if (type === 'row') {
-                const row = $table.row(indexes[0]).data();
-                console.log('select', row);
-            }
-        });
-    });
-
-    ui['btn-clear-table'].on('click', () => {
-        console.log('clear-table', ui['table-test-1']);
-        clearTable(ui['table-test-1']);
-    });
-
-    ui['btn-prepare'].on('click', () => {
-        const info = ui['test-info'].val();
-        server.prepare(info)
-            .then((res) => {
-                data(res);
-            })
-            .catch((e) => console.error(e));
-    });
-
-    ui['btn-get-prev-hash'].on('click', () => {
-        server.getPrevHash(data().ID)
-            .then((res) => {
-                data({ PREV_HASH: res.HASH });
-            })
-            .catch((e) => console.error(e));
-    });
-
-    ui['btn-commit'].on('click', () => {
-        const { ID, h, k } = data();
-        server.commit(ID, h, k)
-            .then((res) => {
-                if (res == 1) {
-                    data({ ID: false });
-                }
-            })
-            .catch((e) => console.error(e));
-    });
-
-    ui['btn-add-row'].on('click', () => {
-        console.log('add-table');
-        addToTable(ui['table-test-1'], test.rows);
-    });
-
-    ui['btn-search-client'].on('click', () => {
-        createTable({
-            id: 'clients',
-            ...clients,
-            $parent: $('#search-list'),
-        }).on('click', () => {
-            ui['client-name'].val('Mike');
-            createTable({
-                ...results,
-                $parent: ui.results,
-            });
-        });
-    });
-
-    ui['btn-test'].on('click', () => {
-        server.test().then(() => {
-            console.log('тест пройден');
-        }).catch((e) => {
-            console.log('тест НЕ пройден, ошибка...');
-            console.error(e);
-        });
-    });
-
-    ui['btn-load'].on('click', () => {
-        server.load({}).then((list) => {
-            console.log('load', list);
-        }).catch((e) => {
-            console.error(e);
-        });
-    });
+    tabServer();
+    tabTab();
+    tabClients();
+    tabJurnal();
 });

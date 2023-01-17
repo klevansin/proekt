@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import router from 'fmihel-php-router-client';
 
 export default class server {
@@ -53,6 +54,19 @@ export default class server {
         return router.send({
             to: 'api/getListResult',
             data: { ID_CLIENT },
+        });
+    }
+
+    static async getClients() {
+        return router.send({
+            to: 'api/getClients',
+        });
+    }
+
+    static async createNewClient({ name1, name2, date_birth }) {
+        return router.send({
+            to: 'api/createNewClient',
+            data: { name1, name2, date_birth },
         });
     }
 }
