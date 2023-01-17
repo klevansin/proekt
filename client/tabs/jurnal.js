@@ -55,6 +55,7 @@ export default () => {
     createTable({
         id: 'results',
         $parent: ui['for-results'],
+        scrollY: 200,
         ...data().results,
     });
 

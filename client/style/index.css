@@ -61,7 +61,7 @@ body{
     margin:var(--gap);
     padding:var(--gap);
     
-    overflow:hidden;
+    overflow:auto;
 }
 
 
