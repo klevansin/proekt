@@ -3,10 +3,13 @@ import { data, onChange } from '../data';
 import server from '../../source/server';
 import { ui } from '../utils/ui';
 import dialog from '../utils/dialog';
+import { isChange } from '../utils/isChange';
 
 onChange(() => {
-    clearTable(ui['clients-list']);
-    addToTable(ui['clients-list'], data().clients.data);
+    if (isChange('clients', data().clients.data)) {
+        clearTable(ui['clients-list']);
+        addToTable(ui['clients-list'], data().clients.data);
+    }
 });
 
 const updateClientsList = () => {

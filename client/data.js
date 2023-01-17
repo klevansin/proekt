@@ -32,8 +32,8 @@ let init = {
     results: {
         data: [],
         columns: [
-            { data: 'DATE', title: 'date' },
             { data: 'INFO', title: 'рузультат' },
+            { data: 'DATE_MODIF', title: 'дата' },
         ],
     },
 

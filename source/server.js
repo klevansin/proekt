@@ -75,4 +75,18 @@ export default class server {
             to: 'api/clearClients',
         });
     }
+
+    static async loadClientResults(ID_CLIENT) {
+        return router.send({
+            to: 'api/loadClientResults',
+            data: { ID_CLIENT },
+        });
+    }
+
+    static async saveNewResults(ID_CLIENT, INFO) {
+        return router.send({
+            to: 'api/saveNewResults',
+            data: { ID_CLIENT, INFO },
+        });
+    }
 }
