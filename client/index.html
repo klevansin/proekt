@@ -48,11 +48,12 @@
           </div>
           <div class="panel block" id="for-clients-list">
           </div>
-          <div class="panel">Добавить клиента</div>
           <div class="panel vert">
+            <label>Добавить клиента</label>
             <input id="name1" type="text" placeholder="имя"/>
             <input id="name2" type="text"  placeholder="фамилия"/>
             <input id="date-birth" type="date"  placeholder="дата рождения"/>
+            <hr>
             <button id="btn-add-new-client">добавить</button>
           </div> 
       
@@ -60,27 +61,22 @@
         <div id="tab-3">
           <div class="panel">
             <label>Введите имя </label>
-            <input type='text'  id="client-template" />
+            <input type='text' id="client-search-value" />
             <button id="btn-search-client" >поиск</button>
           </div>
-          <div class="panel block" >
-            <label>Список найденных клиентов</label>
-            <div id="search-list"></div>
+          
+          <div class="panel block" id="for-clients-finds">
           </div>
-          <div class="panel">
+
+          <div class="panel block" id="panel-results">
             <label>Текущий клиент</label>
-            <input type="text" id="client-name" />
-            
-          </div>
-      
-          <div class="panel vert">
+            <input type="text" id="current-client-name" />
+
             <label>Результаты обращений</label>
-            <div id="results"></div>
-          </div>
-      
-          <div class="panel vert">
+            <div id="for-results"></div>
             <label>Обследование</label>
-            <textarea></textarea>
+            <textarea style="width:100%;min-height:100px"></textarea>
+            <hr>
             <button id="btn-add-result" >добавить</button>
           </div>
       

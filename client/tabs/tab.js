@@ -1,22 +1,23 @@
 import { createTable, clearTable, addToTable } from '../utils/table';
 import { ui } from '../utils/ui';
-import { test } from '../data';
+import { data } from '../data';
 
 export default () => {
-    ui['btn-create-table'].on('click', () => {
-        const $table = createTable({
-            id: 'table-test-1',
-            $parent: $('#for-table-test'),
-            data: test.data,
-            columns: test.columns,
-        });
+    const $table = createTable({
+        id: 'table-test-1',
+        $parent: $('#for-table-test'),
+        ...data().test,
 
-        $table.on('select', (e, dt, type, indexes) => {
-            if (type === 'row') {
-                const row = $table.row(indexes[0]).data();
-                console.log('select', row);
-            }
-        });
+    });
+
+    $table.on('select', (e, dt, type, indexes) => {
+        if (type === 'row') {
+            const row = $table.row(indexes[0]).data();
+            console.log('select', row);
+        }
+    });
+
+    ui['btn-create-table'].on('click', () => {
     });
 
     ui['btn-clear-table'].on('click', () => {

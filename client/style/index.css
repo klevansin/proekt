@@ -65,7 +65,9 @@ body{
 }
 
 
-
+.panel{
+    align-items: center;
+}
 .panel,.vert,.block{
     display: flex;
     background-color: var(--light);
@@ -73,6 +75,7 @@ body{
     border: 1px solid var(--border);
     padding: var(--gap);
     overflow: auto;
+    min-height: var(--size);
 }
 .block{
     display:block;
@@ -83,9 +86,13 @@ body{
     align-items:flex-start;
 }
 label{
+    margin-right:var(--gap) ;
     height: var(--size);
     line-height: var(--size);
-    margin-right:var(--gap) ;
+    text-shadow: 0 0 1px black;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .group,fieldset{
@@ -108,6 +115,7 @@ label{
     border-top-width: 0px !important;
     border-bottom-left-radius: var(--radius);
     border-bottom-right-radius: var(--radius);
+    overflow: auto;
 }
 
 /*---------------------------------------------------*/
