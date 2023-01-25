@@ -21,14 +21,14 @@ export default class server {
     static async init() {
         return router.send({ to: 'api/init' });
     }
-
+    /** return {ID:XXX} */
     static async prepare(info, ...addition) {
         return router.send({
             to: 'api/prepare',
             data: { info, ...addition },
         });
     }
-
+    /** return {HASH:XXX} */
     static async getPrevHash(ID) {
         return router.send({
             to: 'api/getPrevHash',

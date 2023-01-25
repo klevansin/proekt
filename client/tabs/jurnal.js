@@ -41,6 +41,15 @@ const updateClientResults = () => {
         });
     });
 };
+const SaveToServer = async () => {
+    let Di = ui['result-text'].val();
+    let res = await server.prepare(Di);
+    console.log('id',res.ID); 
+    let h = await server.getPrevHash(res.ID);
+    while (h==false){
+        h = await server.getPrevHash(res.ID);
+    };
+};
 export default () => {
     createTable({
         id: 'clients-finds',
@@ -60,9 +69,9 @@ export default () => {
         scrollY: 200,
         ...data().results,
     });
-
     ui['btn-search-client'].on('click', () => {
-        server.findClients(ui['client-search-value'].val()).then(({ finds }) => {
+        server.findClients(ui['client-search-value'].val())
+        .then(({ finds }) => {
             data({
                 finds: { columns: data().finds.columns, data: finds },
                 current: { ID_CLIENT: false },
@@ -70,16 +79,7 @@ export default () => {
         });
     });
     ui['btn-add-result'].on('click', () => {
-        let Di = ui['result-text'].val();
-        let ID;
-        server.prepare(Di)
-            .then(()=>{
-                return server.getPrevHsash();
-            })
-            .then(()=>{
-                //.d.dksksod
-                return server.commit();             
-            });
+        SaveToServer();
 
         //server.saveNewResults(data().current.ID_CLIENT, ui['result-text'].val())
         //    .then(() => {
