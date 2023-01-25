@@ -50,7 +50,7 @@ function strToMassiv(str) {
  * @param {int} k
  * @returns {int}
  */
-function strToHash(str, k) {
+export function strToHash(str, k) {
     const massiv = strToMassiv(`${str}`);
     const g = massivToHash(massiv, k);
     return g;

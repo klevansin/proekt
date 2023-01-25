@@ -35,7 +35,7 @@ function isHashValid(hash) {
  * @returns объект с двумя свойствами {hash,k} ,  hash - найденная хеш-сумма, к - коэффициент приращения,
  * при котором для хеш-суммы isHashValid возвращает true
  */
-function mine(str, k = 8) {
+export function mine(str, k = 8) {
     for (let i = 0; 1 > 0; i++) { // бесконечный цикл
         const hash = strToHash(str + (i === 0 ? '' : i), k);
         if (isHashValid(hash) === true) {

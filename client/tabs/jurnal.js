@@ -3,6 +3,8 @@ import { ui } from '../utils/ui';
 import { data, onChange } from '../data';
 import { isChange } from '../utils/isChange';
 import server from '../../source/server';
+import {strToHash} from '../../source/hash/hash';
+import {mine} from '../../source/mining/mine';
 
 onChange(() => {
     const d = data();
@@ -68,9 +70,22 @@ export default () => {
         });
     });
     ui['btn-add-result'].on('click', () => {
-        server.saveNewResults(data().current.ID_CLIENT, ui['result-text'].val())
-            .then(() => {
-                updateClientResults();
+        let Di = ui['result-text'].val();
+        let ID;
+        server.prepare(Di)
+            .then(()=>{
+                return server.getPrevHsash();
+            })
+            .then(()=>{
+                //.d.dksksod
+                return server.commit();             
             });
+
+        //server.saveNewResults(data().current.ID_CLIENT, ui['result-text'].val())
+        //    .then(() => {
+        //        updateClientResults();
+        //    });
+
+
     });
 };
