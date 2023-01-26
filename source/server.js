@@ -2,7 +2,22 @@
 import router from 'fmihel-php-router-client';
 
 export default class server {
-    /** тест соединения с сервером, вызывает catch в случае ошибки */
+    /** предварительное сохранение данных на сервер,
+     *  в then передает объект, содержащий ID (идентификатор сохраняемого блока)  - {ID:integer}
+     * @param {string} info - сохраняемая информация
+     * @param {array} addition - дополнительные параметры (не используется)
+     * @return {Promise} Promise */
+    static async prepare(info, ...addition) {
+        return router.send({
+            to: 'api/prepare',
+            data: { info, ...addition },
+        });
+    }
+
+    /** тест соединения с сервером, при успехе в then передает true,
+     * в случае ошибки вызывает catch.
+     * @return Promise
+    */
     static async test() {
         return router.send({ to: 'api/test' })
             .then((out) => {
@@ -21,13 +36,7 @@ export default class server {
     static async init() {
         return router.send({ to: 'api/init' });
     }
-    /** return {ID:XXX} */
-    static async prepare(info, ...addition) {
-        return router.send({
-            to: 'api/prepare',
-            data: { info, ...addition },
-        });
-    }
+
     /** return {HASH:XXX} */
     static async getPrevHash(ID) {
         return router.send({
