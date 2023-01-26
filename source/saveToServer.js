@@ -4,9 +4,8 @@
 import server from './server';
 import { mine } from './mining/mine';
 
-/*
-export default async function _saveToServer(Di) {
-    const res = await server.prepare(Di);
+export default async function saveToServer(Di, ID_CLIENT) {
+    const res = await server.prepare(Di, ID_CLIENT);
 
     console.log('id', res.ID);
     let h = await server.getPrevHash(res.ID);
@@ -14,8 +13,8 @@ export default async function _saveToServer(Di) {
         h = await server.getPrevHash(res.ID);
     }
 }
-*/
 
+/*
 export default async function saveToServer(Di, ID_CLIENT) {
     const prepare = await server.prepare(Di, ID_CLIENT);
 
@@ -38,3 +37,4 @@ export default async function saveToServer(Di, ID_CLIENT) {
     //    out = await server.commit(prepare.ID, block.hash, block.i);
     // }
 }
+*/

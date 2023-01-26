@@ -60,7 +60,8 @@ body{
     user-select: none;
     margin:var(--gap);
     padding:var(--gap);
-    overflow:auto;
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 
 @media screen and (max-width: 900px) {
@@ -133,6 +134,10 @@ label{
 }
 
 /*---------------------------------------------------*/
+.overflow-h{
+    max-height:300px;
+    overflow-y: auto;
+}
 .dataTables_wrapper{
     border: 1px solid var(--dark);
 }
@@ -151,5 +156,36 @@ table tbody tr{
 table tbody td{
     padding-left:var(--gap);
     padding-right:var(--gap);
+}
+/*---------------------------------------------------*/
+#waiter{
+    background-color: #ffffff5e;
+
+    position: absolute;
+    left:0px;
+    top:0px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+}
+/*---------------------------------------------------*/
+.ui-progressbar{
+    min-width: 100px;
+}
+.progress-label{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    text-shadow: 0 0 1px black;
+}
+.progress-label span{
+    position: relative;
+    left:10px;
+    top:2px;
 }
 /*---------------------------------------------------*/

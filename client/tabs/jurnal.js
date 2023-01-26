@@ -1,5 +1,5 @@
 import { createTable, clearTable, addToTable } from '../utils/table';
-import { ui } from '../utils/ui';
+import { ui, waiter } from '../utils/ui';
 import { data, onChange } from '../data';
 import { isChange } from '../utils/isChange';
 import server from '../../source/server';
@@ -70,11 +70,14 @@ export default () => {
             });
     });
     ui['btn-add-result'].on('click', () => {
+        waiter('show');
         saveToServer(ui['result-text'].val(), data().current.ID_CLIENT)
             .then(() => {
                 updateClientResults();
+                waiter('hide');
             }).catch((e) => {
                 console.error(e);
+                waiter('hide');
             });
 
         // server.saveNewResults(data().current.ID_CLIENT, ui['result-text'].val())

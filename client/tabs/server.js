@@ -1,5 +1,5 @@
 import { createTable, clearTable, addToTable } from '../utils/table';
-import { ui } from '../utils/ui';
+import { ui, waiter } from '../utils/ui';
 import server from '../../source/server';
 import { data, onChange } from '../data';
 
@@ -76,5 +76,12 @@ export default () => {
         }).catch((e) => {
             console.error(e);
         });
+    });
+
+    ui['btn-waiter'].on('click', () => {
+        waiter('show');
+        setTimeout(() => {
+            waiter('hide');
+        }, 5000);
     });
 };

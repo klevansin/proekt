@@ -21,6 +21,7 @@
             <button id="btn-init" >init</button>
             <button id="btn-test" >test</button>
             <button id="btn-load" >load</button>
+            <button id="btn-waiter" >waiter</button>
           </div>
           <div class="panel">
             <input id="test-info" type='text' placeholder="info"/>
@@ -29,7 +30,7 @@
             <button id="btn-commit" >commit</button>
           </div>
 
-          <div class="panel block" id="for-all-list">
+          <div class="panel block overflow-h" id="for-all-list">
           </div>
         </div>
         <div id="tab-1">
@@ -47,7 +48,7 @@
             <button id="btn-clear-clients-list">очистить</button>
           </div>
           <div class="panel block" >
-            <div id="for-clients-list" style="min-width:520px"></div>
+            <div id="for-clients-list" style="min-width:520px" class="overflow-h"></div>
           </div>
           <div class="panel vert">
             <label>Добавить клиента</label>
@@ -66,7 +67,7 @@
             <button id="btn-search-client" >поиск</button>
           </div>
           
-          <div class="panel block" id="for-clients-finds">
+          <div class="panel block overflow-h" id="for-clients-finds">
           </div>
 
           <div class="panel block" id="panel-results">
@@ -74,7 +75,7 @@
             <input type="text" id="current-client-name" />
 
             <label>Результаты обращений</label>
-            <div id="for-results"></div>
+            <div id="for-results" class="overflow-h"></div>
             <label>Обследование</label>
             <textarea style="width:100%;min-height:100px" id="result-text"></textarea>
             <hr>
@@ -87,7 +88,10 @@
       <div id="dlg-1" title="dialog">
         <p id="message"></p>
       </div>
-
+      
+    </div>
+    <div id="waiter">
+      <div id="progress-1"><div class="progress-label"><span>расчет..</span></div></div>
     </div>
   </body>
 </html>
