@@ -2,6 +2,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+import strToHash from '../hash/hash';
 /** алгоритмы расчета хеш-суммы определенного вида (майнинг) */
 
 /**
@@ -12,7 +13,7 @@
  * @param {string} hash - анализируемая хеш-сумма
  * @returns {bool}
  */
-function isHashValid(hash) {
+export function isHashValid(hash) {
     const hashStr = `${hash}`;
     let count = 3;
     for (let i = 0; i < hashStr.length; i++) {

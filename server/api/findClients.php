@@ -8,7 +8,8 @@ if (strlen($find)>0){
     $query = "select * from TEST_BC_CLIENTS where NAME1 LIKE '%$find%' OR NAME2 LIKE '%$find%' ORDER BY ID_CLIENT";
     $finds = Base::rows($query,'bc','utf8');
 }else{
-    $finds = [];
+    $query = "select * from TEST_BC_CLIENTS ORDER BY ID_CLIENT";
+    $finds = Base::rows($query,'bc','utf8');
 }
 
 router::out(['finds'=>$finds]);

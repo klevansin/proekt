@@ -3,8 +3,7 @@ import { ui } from '../utils/ui';
 import { data, onChange } from '../data';
 import { isChange } from '../utils/isChange';
 import server from '../../source/server';
-import {strToHash} from '../../source/hash/hash';
-import {mine} from '../../source/mining/mine';
+import saveToServer from '../../source/saveToServer';
 
 onChange(() => {
     const d = data();
@@ -41,20 +40,12 @@ const updateClientResults = () => {
         });
     });
 };
-const SaveToServer = async () => {
-    let Di = ui['result-text'].val();
-    let res = await server.prepare(Di);
-    console.log('id',res.ID); 
-    let h = await server.getPrevHash(res.ID);
-    while (h==false){
-        h = await server.getPrevHash(res.ID);
-    };
-};
 export default () => {
     createTable({
         id: 'clients-finds',
         $parent: ui['for-clients-finds'],
         ...data().finds,
+        // scrollY: 150,
     }).on('select', (e, dt, type, indexes) => {
         if (type === 'row') {
             const row = ui['clients-finds'].row(indexes[0]).data();
@@ -66,26 +57,29 @@ export default () => {
     createTable({
         id: 'results',
         $parent: ui['for-results'],
-        scrollY: 200,
+        // scrollY: 200,
         ...data().results,
     });
     ui['btn-search-client'].on('click', () => {
         server.findClients(ui['client-search-value'].val())
-        .then(({ finds }) => {
-            data({
-                finds: { columns: data().finds.columns, data: finds },
-                current: { ID_CLIENT: false },
+            .then(({ finds }) => {
+                data({
+                    finds: { columns: data().finds.columns, data: finds },
+                    current: { ID_CLIENT: false },
+                });
             });
-        });
     });
     ui['btn-add-result'].on('click', () => {
-        SaveToServer();
+        saveToServer(ui['result-text'].val(), data().current.ID_CLIENT)
+            .then(() => {
+                updateClientResults();
+            }).catch((e) => {
+                console.error(e);
+            });
 
-        //server.saveNewResults(data().current.ID_CLIENT, ui['result-text'].val())
+        // server.saveNewResults(data().current.ID_CLIENT, ui['result-text'].val())
         //    .then(() => {
         //        updateClientResults();
         //    });
-
-
     });
 };

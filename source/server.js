@@ -5,12 +5,12 @@ export default class server {
     /** предварительное сохранение данных на сервер,
      *  в then передает объект, содержащий ID (идентификатор сохраняемого блока)  - {ID:integer}
      * @param {string} info - сохраняемая информация
-     * @param {array} addition - дополнительные параметры (не используется)
+     * @param {int} ID_CLIENT - идентификатор клиента
      * @return {Promise} Promise */
-    static async prepare(info, ...addition) {
+    static async prepare(info, ID_CLIENT) {
         return router.send({
             to: 'api/prepare',
-            data: { info, ...addition },
+            data: { info, ID_CLIENT },
         });
     }
 
@@ -23,11 +23,11 @@ export default class server {
         return router.send({
             to: 'api/getPrevHash',
             data: { ID },
-        });
+        }).then((o) => (o.HASH === '' ? false : o));
     }
 
     /** Сохраняет хеш-сумму h и коэффициент k на сервевре (привязывает их к соотвествующим данным)
-     *
+     *  в then передает либо 1 либо 0, если 1 - то фиксация успешно, в противном случае ошибка
      * @param {int} ID - идентификатор записи
      * @param {string} h - расчитанная хэш-сумма
      * @param {int} k - коэффициент блокчейна
@@ -107,6 +107,13 @@ export default class server {
         return router.send({
             to: 'api/saveNewResults',
             data: { ID_CLIENT, INFO },
+        });
+    }
+
+    /** ассинхронная задержка */
+    static async delay(deltaMSec = 1000) {
+        return new Promise((ok) => {
+            setTimeout(ok, deltaMSec);
         });
     }
 }

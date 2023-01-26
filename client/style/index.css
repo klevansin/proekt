@@ -60,9 +60,15 @@ body{
     user-select: none;
     margin:var(--gap);
     padding:var(--gap);
-    
     overflow:auto;
 }
+
+@media screen and (max-width: 900px) {
+    body{
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+}    
 
 
 .panel{
@@ -109,6 +115,7 @@ label{
     border: 1px solid var(--border);
     border: 1px solid var(--border);
 }
+
 .ui-tabs-panel{
     border-radius: 0px;
     border: 1px solid var(--border) !important;
@@ -116,6 +123,13 @@ label{
     border-bottom-left-radius: var(--radius);
     border-bottom-right-radius: var(--radius);
     overflow: auto;
+    
+}
+@media screen and (max-width: 900px) {
+    .ui-tabs .ui-tabs-panel {    
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 }
 
 /*---------------------------------------------------*/

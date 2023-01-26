@@ -1,4 +1,4 @@
-let init = {
+let DATA = {
     ID: false,
     PREV_HASH: '',
     h: '',
@@ -87,10 +87,10 @@ let init = {
 const changeCallbacks = [];
 export const data = (newData = undefined) => {
     if (newData) {
-        init = { ...init, ...newData };
-        changeCallbacks.map((cb) => cb(init));
+        DATA = { ...DATA, ...newData };
+        changeCallbacks.map((cb) => cb(DATA));
     }
-    return init;
+    return DATA;
 };
 
 export const onChange = (callback) => {
