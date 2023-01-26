@@ -14,6 +14,32 @@ export default class server {
         });
     }
 
+    /** возвращает хэш сумму предыдущего сохранения
+     *  в then передает объект, содержащий HASH (значение хэш-суммы предыдущего сохранения) - {HASH:string}
+     *  @param {int}  ID идентификатор текущей записи
+     *  @return {Promise} Promise
+     */
+    static async getPrevHash(ID) {
+        return router.send({
+            to: 'api/getPrevHash',
+            data: { ID },
+        });
+    }
+
+    /** Сохраняет хеш-сумму h и коэффициент k на сервевре (привязывает их к соотвествующим данным)
+     *
+     * @param {int} ID - идентификатор записи
+     * @param {string} h - расчитанная хэш-сумма
+     * @param {int} k - коэффициент блокчейна
+     * @returns {Promise} Promise
+     */
+    static async commit(ID, h, k) {
+        return router.send({
+            to: 'api/commit',
+            data: { ID, h, k },
+        });
+    }
+
     /** тест соединения с сервером, при успехе в then передает true,
      * в случае ошибки вызывает catch.
      * @return Promise
@@ -35,21 +61,6 @@ export default class server {
 
     static async init() {
         return router.send({ to: 'api/init' });
-    }
-
-    /** return {HASH:XXX} */
-    static async getPrevHash(ID) {
-        return router.send({
-            to: 'api/getPrevHash',
-            data: { ID },
-        });
-    }
-
-    static async commit(ID, h, k) {
-        return router.send({
-            to: 'api/commit',
-            data: { ID, h, k },
-        });
     }
 
     static async findClients(clientName) {
