@@ -60,6 +60,19 @@ export default () => {
         // scrollY: 200,
         ...data().results,
     });
+    ui['client-search-value'].keydown( (key) => {
+        if ( key.which == 13 ) {
+           
+        server.findClients(ui['client-search-value'].val())
+            .then(({ finds }) => {
+                data({
+                    finds: { columns: data().finds.columns, data: finds },
+                    current: { ID_CLIENT: false },
+                });
+            });
+        }
+    });
+
     ui['btn-search-client'].on('click', () => {
         server.findClients(ui['client-search-value'].val())
             .then(({ finds }) => {

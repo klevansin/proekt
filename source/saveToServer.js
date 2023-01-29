@@ -6,12 +6,19 @@ import { mine } from './mining/mine';
 
 export default async function saveToServer(Di, ID_CLIENT) {
     const res = await server.prepare(Di, ID_CLIENT);
+    
 
     console.log('id', res.ID);
     let h = await server.getPrevHash(res.ID);
     while (h == false) {
         h = await server.getPrevHash(res.ID);
-    }
+    };
+    console.log(h, 'пред хэш');
+    let m = mine(Di+h);
+    let hash =m.hash;
+    let k = m.i;
+    await server.commit(res.ID, hash, k);
+    console.log(res.ID, hash, k, 'id строчки, хэш, коэф преращения')
 }
 
 /*
