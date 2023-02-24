@@ -30,11 +30,12 @@ export default () => {
         updateClientsList();
     });
 
-    ui['btn-clear-clients-list'].on('click', () => {
-        server.clearClients().then(() => {
-            data({ clients: { columns: data().clients.columns, data: [] } });
-        });
-    });
+    //ui['btn-clear-clients-list'].on('click', () => {
+    //    server.clearClients().then(() => {
+    //        data({ clients: { columns: data().clients.columns, data: [] } });
+    //    });
+    //});
+
 
     ui['btn-add-new-client'].on('click', () => {
         server.createNewClient({
