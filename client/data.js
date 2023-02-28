@@ -32,7 +32,7 @@ let DATA = {
     results: {
         data: [],
         columns: [
-            { data: 'INFO', title: 'рузультат' },
+            { data: 'INFO', title: 'результат' },
             { data: 'DATE_MODIF', title: 'дата' },
         ],
     },
